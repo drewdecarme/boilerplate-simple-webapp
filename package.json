@@ -3,6 +3,12 @@
   "engines": {
     "node": ">=4"
   },
+  "scripts": {
+    "dev": "gulp serve",
+    "test": "gulp serve:test",
+    "build": "gulp",
+    "preview": "gulp serve:dist"
+  },
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-preset-es2015": "^6.3.13",
