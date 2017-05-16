@@ -5,6 +5,9 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+const svgstore = require('gulp-svgstore');
+const svgmin = require('gulp-svgmin');
+const path = require('path');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -24,6 +27,24 @@ gulp.task('styles', () => {
     .pipe($.if(dev, $.sourcemaps.write()))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
+});
+
+gulp.task('icons', () => {
+  return gulp
+    .src('app/icons/*.svg')
+    .pipe(svgmin(function (file) {
+      var prefix = path.basename(file.relative, path.extname(file.relative));
+        return {
+          plugins: [{
+            cleanupIDs: {
+              prefix: prefix + '-',
+              minify: true
+            }
+          }]
+        }
+    }))
+    .pipe(svgstore())
+    .pipe($.if(dev, gulp.dest('.tmp/icons'), gulp.dest('dist/icons')));
 });
 
 gulp.task('scripts', () => {
@@ -95,7 +116,7 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts', 'icons'], () => {
     browserSync.init({
       notify: false,
       port: 9000,
@@ -110,6 +131,7 @@ gulp.task('serve', () => {
     gulp.watch([
       'app/*.html',
       'app/images/**/*',
+      'app/icons/**/*',
       '.tmp/fonts/**/*'
     ]).on('change', reload);
 
@@ -166,7 +188,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'icons', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

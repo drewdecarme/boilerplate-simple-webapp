@@ -49,5 +49,8 @@
       ]
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.1.0"
+  }
 }
