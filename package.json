@@ -50,6 +50,7 @@
     }
   },
   "dependencies": {
+    "gulp-inject": "^4.2.0",
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0"
   }

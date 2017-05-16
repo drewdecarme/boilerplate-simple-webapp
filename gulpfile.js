@@ -7,6 +7,7 @@ const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const svgstore = require('gulp-svgstore');
 const svgmin = require('gulp-svgmin');
+var inject = require('gulp-inject');
 const path = require('path');
 
 const $ = gulpLoadPlugins();
@@ -30,21 +31,29 @@ gulp.task('styles', () => {
 });
 
 gulp.task('icons', () => {
-  return gulp
+  var svgs = gulp
     .src('app/icons/*.svg')
     .pipe(svgmin(function (file) {
       var prefix = path.basename(file.relative, path.extname(file.relative));
         return {
           plugins: [{
             cleanupIDs: {
-              prefix: prefix + '-',
               minify: true
             }
           }]
         }
     }))
-    .pipe(svgstore())
-    .pipe($.if(dev, gulp.dest('.tmp/icons'), gulp.dest('dist/icons')));
+    .pipe(svgstore());
+
+
+  const fileContents = (filePath, file) => {
+    return file.contents.toString();
+  }
+
+  return gulp
+    .src('app/index.html')
+    .pipe(inject(svgs, { transform: fileContents }))
+    .pipe(gulp.dest('app'));
 });
 
 gulp.task('scripts', () => {
@@ -74,11 +83,12 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec'));
 });
 
-gulp.task('html', ['styles', 'scripts'], () => {
+gulp.task('html', ['styles', 'scripts', 'icons'], () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
     .pipe($.if(/\.css$/, $.cssnano({safe: true, autoprefixer: false})))
+    // add support for svg on build
     .pipe($.if(/\.html$/, $.htmlmin({
       collapseWhitespace: true,
       minifyCSS: true,
@@ -188,7 +198,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'icons', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

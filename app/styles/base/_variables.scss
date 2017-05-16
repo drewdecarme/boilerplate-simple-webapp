@@ -1,12 +1,16 @@
+// Fonts
 $font-family: 'Source Sans Pro';
 
 // Grid
-// set this to false if using bootstrap
 $enable-standalone-grid: true !default;
-
 
 // Fonts
 $modularscale: (
   base: 1rem,
   ratio: 1.4
 );
+
+// Icons
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
