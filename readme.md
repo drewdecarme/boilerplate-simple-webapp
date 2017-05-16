@@ -11,7 +11,7 @@ I wanted the ability to be able to start any simple web application project righ
 Projects such as these are normally simple websites, proof of concepts, quick jQuery components, or styling exercises where I don't need a massive asset pipeline.
 
 ### Styling
-I'm typically use sass for all of my projects, but I like to set it up in a way where I can port my configurations from project to project. The configuration in this project typically works for this and angular projects (ReactJS is a different situation in that I really don't use the C in CSS).
+I typically use sass for all of my projects, but I like to set it up in a way where I can port my configurations from project to project. The configuration in this project typically works for this and angular projects (ReactJS is a different situation in that I really don't use the C in CSS via [Babel Plugin React CSS Modules](https://github.com/gajus/babel-plugin-react-css-modules)).
 
 I like to start off with some base builds, define their details as partials and then include them all of the way up the styles file structure. The only sass file that isn't a partial is the main.scss file. That way I know exactly what I'm including, where I'm including it, and what I have access to.
 
