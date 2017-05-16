@@ -1,7 +1,11 @@
-// bower:scss
-@import "bower_components/bootstrap/scss/bootstrap.scss";
-// endbower
-
+/**
+ * Removed bootstrap from base build. Uncomment below to 
+ * include bootstrap styles back into project
+ *
+ *
+ * // bower:scss
+  // endbower
+ */
 
 // Base Imports
 @import 'base';
