@@ -8,3 +8,14 @@
   clip: rect(0, 0, 0, 0);
   position: absolute;
 }
+
+@mixin breakpoint($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

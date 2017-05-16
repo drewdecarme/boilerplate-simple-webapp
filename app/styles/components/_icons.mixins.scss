@@ -11,3 +11,8 @@
         }
     }
 }
+
+@mixin make-icon($size: 20px, $additional: 0){
+    height: $size + $additional;
+    width: $size + $additional;
+}

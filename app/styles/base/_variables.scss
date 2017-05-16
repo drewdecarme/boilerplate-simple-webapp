@@ -10,7 +10,23 @@ $modularscale: (
   ratio: 1.4
 );
 
-// Icons
+// Images
 $image-path: '../img' !default;
 $fallback-extension: 'png' !default;
 $retina-suffix: '@2x';
+
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+// Icons
+$icon-xs: 10px;
+$icon-sm: 20px;
+$icon-md: 30px;
+$icon-lg: 50px;
+$icon-xl: 70px;

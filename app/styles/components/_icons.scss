@@ -1,1 +1,37 @@
 @import 'icons.mixins';
+
+
+.icon{
+  &__size{
+    &-xs{
+      @include make-icon($icon-xs);
+      &-sm{
+        @include make-icon($icon-xs, 5);
+      }
+    }
+    &-sm{
+      @include make-icon($icon-sm);
+      &-md{
+        @include make-icon($icon-sm, 5);
+      }
+    }
+    &-md{
+      @include make-icon($icon-md);
+      &-lg{
+        @include make-icon($icon-md, 10);
+      }
+    }
+    &-lg{
+      @include make-icon($icon-lg);
+      &-xl{
+        @include make-icon($icon-lg, 10);
+      }
+    }
+    &-xl{
+      @include make-icon($icon-xl);
+      &-xxl{
+        @include make-icon($icon-xl, 15);
+      }
+    }
+  }
+}
