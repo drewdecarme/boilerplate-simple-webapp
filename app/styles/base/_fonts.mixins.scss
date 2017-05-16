@@ -1,0 +1,40 @@
+@mixin make-font($font-weight: normal, $font-style: normal){
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+@mixin make-font-size($num, $line-height: 1.5){
+  font-size: ms($num);
+  line-height: ms($num) * 1.5;
+}
+
+@mixin font($size: 0){
+  @include make-font;
+  @include make-font-size($size);
+}
+
+@mixin font-i($size: 0){
+  @include make-font(normal, italic);
+  @include make-font-size($size);
+}
+
+@mixin font-b($size: 0){
+  @include make-font(bold, normal);
+  @include make-font-size($size);
+}
+
+@mixin font-bi($size: 0){
+  @include make-font(bold, italic);
+  @include make-font-size($size);
+}
+
+@mixin font-sb($size: 0){
+  @include make-font(600, normal);
+  @include make-font-size($size);
+}
+
+@mixin font-sbi($size: 0){
+  @include make-font(600, italic);
+  @include make-font-size($size);
+}

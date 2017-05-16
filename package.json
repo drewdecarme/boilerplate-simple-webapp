@@ -49,7 +49,5 @@
       ]
     }
   },
-  "dependencies": {
-    "modular-scale": "^4.4.1"
-  }
+  "dependencies": {}
 }

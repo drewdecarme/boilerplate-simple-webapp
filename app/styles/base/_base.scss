@@ -6,3 +6,25 @@
   }
 }
 
+html{
+  font-size: 62.5%;
+  line-height: 1.5;
+  @include make-font;
+}
+h1{
+  @include font-b(5);
+}
+h2{
+  @include font(4)
+}
+h3{
+  @include font-sb(3);
+  text-transform: uppercase;
+}
+h4{
+  @include font(2);
+}
+h5, p{
+  @include font(1);
+}
+

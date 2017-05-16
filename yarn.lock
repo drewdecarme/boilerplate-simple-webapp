@@ -3708,10 +3708,6 @@ mkdirp@0.3.0:
   dependencies:
     minimist "0.0.8"
 
-modular-scale@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/modular-scale/-/modular-scale-4.4.1.tgz#9dc07cb170ab9b536838bc7750e63fc6cc3724e0"
-
 mout@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/mout/-/mout-1.0.0.tgz#9bdf1d4af57d66d47cb353a6335a3281098e1501"
