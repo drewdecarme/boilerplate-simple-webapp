@@ -1,3 +1,5 @@
+@import 'base.mixins';
+
 *{
   box-sizing: border-box;
   @include font(1);
@@ -28,5 +30,9 @@ h4{
 }
 h5, p{
   @include font(1);
+}
+
+.visually-hidden {
+  @extend %visuallyhidden;
 }
 
