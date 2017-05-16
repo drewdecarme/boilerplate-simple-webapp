@@ -31,6 +31,26 @@
   @include make-font-size($size);
 }
 
+@mixin font-l($size: 0){
+  @include make-font(300, normal);
+  @include make-font-size($size);
+}
+
+@mixin font-li($size: 0){
+  @include make-font(300, italic);
+  @include make-font-size($size);
+}
+
+@mixin font-xl($size: 0){
+  @include make-font(200, normal);
+  @include make-font-size($size);
+}
+
+@mixin font-xli($size: 0){
+  @include make-font(200, italic);
+  @include make-font-size($size);
+}
+
 @mixin font-sb($size: 0){
   @include make-font(600, normal);
   @include make-font-size($size);
@@ -38,5 +58,15 @@
 
 @mixin font-sbi($size: 0){
   @include make-font(600, italic);
+  @include make-font-size($size);
+}
+
+@mixin font-bla($size: 0){
+  @include make-font(900, normal);
+  @include make-font-size($size);
+}
+
+@mixin font-blai($size: 0){
+  @include make-font(900, italic);
   @include make-font-size($size);
 }
