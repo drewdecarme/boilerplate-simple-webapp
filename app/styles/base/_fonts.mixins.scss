@@ -1,3 +1,5 @@
+@import 'modularscale';
+
 @mixin make-font($font-weight: normal, $font-style: normal){
   font-family: $font-family;
   font-weight: $font-weight;
