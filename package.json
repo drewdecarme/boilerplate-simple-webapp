@@ -4,7 +4,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "dev": "gulp serve",
+    "start": "gulp serve",
     "test": "gulp serve:test",
     "build": "gulp",
     "preview": "gulp serve:dist"
