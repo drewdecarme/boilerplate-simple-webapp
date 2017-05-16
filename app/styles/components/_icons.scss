@@ -1,6 +1,5 @@
 @import 'icons.mixins';
 
-
 .icon{
   &__size{
     &-xs{
@@ -33,5 +32,9 @@
         @include make-icon($icon-xl, 15);
       }
     }
+  }
+  
+  &__block{
+    display: block;
   }
 }
