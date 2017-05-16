@@ -54,3 +54,6 @@ I like to start off with some base builds, define their details as partials and 
   5. `yarn lint` Lints the src directory
   6. `yarn lint:fix` Runs the linting autofixer on the src directory
   6. `yarn preview` Previews the final build
+
+## To Do
+- [ ] Port linter from React Project to this project
